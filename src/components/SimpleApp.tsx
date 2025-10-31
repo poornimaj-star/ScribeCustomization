@@ -115,7 +115,7 @@ const MedicalFormBuilder = () => {
   // Drag and drop state
   const [draggedSection, setDraggedSection] = useState<string | null>(null);
   const [dragOverSection, setDragOverSection] = useState<string | null>(null);
-  const [dragOperation, setDragOperation] = useState<'move' | 'reorder' | null>(null);
+  // const [dragOperation, setDragOperation] = useState<'move' | 'reorder' | null>(null);
   
   // Field drag and drop state
   const [draggedField, setDraggedField] = useState<{fieldIndex: number, sectionId: string} | null>(null);
@@ -590,7 +590,7 @@ const MedicalFormBuilder = () => {
   const handleDragEnd = () => {
     setDraggedSection(null);
     setDragOverSection(null);
-    setDragOperation(null);
+    // setDragOperation(null);
   };
 
   const handleDragOver = (e: React.DragEvent, sectionId: string) => {
@@ -621,7 +621,7 @@ const MedicalFormBuilder = () => {
       const targetInfo = findSectionWithParent(sections, sectionId);
       const sameParent = draggedInfo.parent?.id === targetInfo.parent?.id;
       
-      setDragOperation(sameParent ? 'reorder' : 'move');
+      // setDragOperation(sameParent ? 'reorder' : 'move');
     }
   };
 
@@ -810,7 +810,7 @@ const MedicalFormBuilder = () => {
     
     setDraggedSection(null);
     setDragOverSection(null);
-    setDragOperation(null);
+    // setDragOperation(null);
   };
 
   const handleDropOutside = (e: React.DragEvent) => {
@@ -864,7 +864,7 @@ const MedicalFormBuilder = () => {
 
     setDraggedSection(null);
     setDragOverSection(null);
-    setDragOperation(null);
+    // setDragOperation(null);
   };
 
   // Template management functions
@@ -1033,7 +1033,7 @@ const MedicalFormBuilder = () => {
 
       if (currentTemplateId) {
         // Update existing template using templateApi instead of direct fetch
-        const updatedTemplate = await templateApi.updateTemplate(currentTemplateId, templateData);
+        await templateApi.updateTemplate(currentTemplateId, templateData);
 
         // Update local state
         setTemplates(templates.map(t => 
