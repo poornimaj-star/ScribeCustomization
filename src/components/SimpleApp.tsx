@@ -619,7 +619,7 @@ const MedicalFormBuilder = () => {
       
       const draggedInfo = findSectionWithParent(sections, draggedSection);
       const targetInfo = findSectionWithParent(sections, sectionId);
-      const sameParent = draggedInfo.parent?.id === targetInfo.parent?.id;
+      draggedInfo.parent?.id === targetInfo.parent?.id;
       
       // setDragOperation(sameParent ? 'reorder' : 'move');
     }
